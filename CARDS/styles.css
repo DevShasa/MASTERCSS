@@ -45,7 +45,7 @@
     width: 100%;
     aspect-ratio: 16 /9;
     object-fit: cover;
-    max-height: 200%;
+    max-height: 200px;
     object-position: center;
     transition: 200ms transform ease-in-out;
 }
