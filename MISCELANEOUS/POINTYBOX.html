@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0
+        }
+        .my-container{
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        .tag{
+            border: 5px solid black;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 60px;
+            border-left: none;
+            border-radius:10px;
+        }
+        .tag::before{
+            display: block;
+            border: 5px solid black;
+            width: 29px;
+            height: 29px;
+            content:"";
+            border-right: none;
+            border-bottom: none;
+            position: absolute;
+            left: -12px;
+            border-top-left-radius: 10px;
+            transform: rotateZ(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="my-container">
+        <div class="tag">
+            <span class="content">Demo</span>
+        </div>
+    </div>
+</body>
+</html>
