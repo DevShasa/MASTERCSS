@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .img-container{
+            position: relative;
+            width:300px;
+            height: 300px;
+        }
+        .img-container img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* filter: grayscale(100%); */
+        }
+        .overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(
+                0 0,      /* top-left outer */
+                100% 0,   /* top-right outer */
+                100% 100%,/* bottom-right outer */
+                0 100%,   /* bottom-left outer */
+                
+                0 95%,    /* bottom-left inner start */
+                95% 95%,  /* bottom-right inner */
+                95% 5%,   /* top-right inner */
+                5% 5%,    /* top-left inner */
+                5% 95%,   /* bottom-left inner end */
+                0 95%     /* connect back to start */
+            );
+            transition: clip-path 0.3s ease;
+        }
+
+
+        .img-container:hover .overlay{
+            clip-path: polygon(
+                0 0,      /* top-left outer */
+                100% 0,   /* top-right outer */
+                100% 100%,/* bottom-right outer */
+                0 100%,   /* bottom-left outer */
+                
+                0 98%,    /* Increased from 95% */
+                98% 98%,  /* Increased from 95% */
+                98% 2%,  /* Decreased from 5% */
+                2% 2%,  /* Decreased from 5% */
+                2% 98%,  /* Increased from 95% */
+                0 98%     /* Increased from 95% */
+            );
+        }
+
+
+    </style>
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="img-container">
+        <img src="./farm.jpeg" alt="farm-image">
+        <div class="overlay"></div>
+    </div>
+</body>
+</html>
